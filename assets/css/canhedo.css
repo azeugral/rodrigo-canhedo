@@ -131,9 +131,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   background: var(--parede) url(../img/parede.webp) repeat; background-size: 512px; color: var(--claro); overflow: hidden;
 }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 90% at 70% 45%, transparent 35%, rgba(10, 9, 7, .55) 100%); pointer-events: none; }
-.hero-txt { position: relative; z-index: 2; max-width: 640px; }
+.hero-txt { position: relative; z-index: 2; max-width: 680px; container-type: inline-size; }
 .hero-nome {
-  font: 400 clamp(52px, min(8.4vw, 14.4vh), 128px)/.9 'Ultra', Georgia, serif; letter-spacing: -.012em; color: var(--papel);
+  --nome: clamp(52px, min(8.4vw, 14.4vh), 128px);
+  font: 400 var(--nome)/.9 'Ultra', Georgia, serif; letter-spacing: -.012em; color: var(--papel);
+  font-size: min(var(--nome), 17cqi); /* "Canhedo" + sombra ≈ 5,6em: nunca passa da coluna */
   margin: 4px 0 clamp(16px, 2.6vh, 26px);
 }
 .hero-nome .l { display: block; overflow: hidden; padding: 0 .1em .08em 0; margin-bottom: -.08em; }
@@ -360,7 +362,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero { grid-template-columns: 1fr; align-content: start; gap: 0; padding-top: calc(var(--topo-h) + 1.5svh); padding-bottom: 3svh; }
   .hero-mesa { order: -1; height: min(41svh, 560px); margin-bottom: 3svh; }
   .hero-txt { max-width: 640px; }
-  .hero-nome { font-size: clamp(44px, min(12.6vw, 7.6svh), 92px); }
+  .hero-nome { --nome: clamp(44px, min(12.6vw, 7.6svh), 92px); }
   .folha-leg { bottom: -26px; font-size: 11px; }
   .folha-fundo { height: 78%; }
   .folha-fundo.f1 { left: 2%; } .folha-fundo.f2 { right: 0; }
@@ -383,7 +385,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero-mesa { height: min(36svh, 420px); margin-bottom: 4.6svh; }
   .hero .faixa { margin-bottom: 1.4svh; }
   .hero .faixa span { font-size: 11.5px; padding: 7px 18px; }
-  .hero-nome { font-size: clamp(40px, min(12.4vw, 7.2svh), 60px); margin-bottom: 1.8svh; }
+  .hero-nome { --nome: clamp(40px, min(12.4vw, 7.2svh), 60px); margin-bottom: 1.8svh; }
   .hero-sub { font-size: 15.5px; line-height: 1.5; }
   .hero-acoes { gap: 8px; margin: 2.6svh 0 2.6svh; flex-wrap: nowrap; }
   .hero-acoes .btn { flex: 1 1 0; min-height: 48px; padding: 0 10px; font-size: 13px; letter-spacing: .04em; text-align: center; }
@@ -438,7 +440,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-height: 520px) and (orientation: landscape) {
   .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); padding-top: calc(var(--topo-h) + 8px); }
   .hero-mesa { order: 0; height: 74svh; margin: 0; }
-  .hero-nome { font-size: clamp(34px, 11svh, 60px); }
+  .hero-nome { --nome: clamp(34px, 11svh, 60px); }
   .hero-info { display: none; }
   .hero-acoes { margin: 14px 0 0; }
   .hero-acoes .btn { flex: 0 1 auto; }
