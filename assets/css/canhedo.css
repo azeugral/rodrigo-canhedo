@@ -46,11 +46,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .tinta { background: var(--tinta); color: var(--claro); }
 
 /* rótulo em faixa (banner de flash) */
-.faixa { display: inline-flex; margin-bottom: 18px; }
+.faixa { display: inline-flex; max-width: 100%; margin-bottom: clamp(18px, 2vw, 26px); }
 .faixa span {
   position: relative; display: inline-block; background: var(--verm); color: var(--papel);
-  font: 700 15px/1 'Archivo', sans-serif; font-stretch: 78%; letter-spacing: .09em; text-transform: uppercase;
-  padding: 10px 26px; clip-path: polygon(0 0, 100% 0, calc(100% - 11px) 50%, 100% 100%, 0 100%, 11px 50%);
+  font: 700 clamp(16px, 1.45vw, 21px)/1 'Archivo', sans-serif; font-stretch: 78%; letter-spacing: .09em; text-transform: uppercase;
+  padding: .72em 1.75em; clip-path: polygon(0 0, 100% 0, calc(100% - .75em) 50%, 100% 100%, 0 100%, .75em 50%);
 }
 .titulo {
   font: 400 clamp(38px, 6.2vw, 78px)/.98 'Ultra', Georgia, serif; letter-spacing: -.01em; color: var(--tinta);
@@ -360,8 +360,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .nav, .btn-topo { display: none; }
   .menu-btn { display: block; }
   .hero { grid-template-columns: 1fr; align-content: start; gap: 0; padding-top: calc(var(--topo-h) + 1.5svh); padding-bottom: 3svh; }
-  .hero-mesa { order: -1; height: min(41svh, 560px); margin-bottom: 3svh; }
+  .hero-mesa { order: -1; height: min(38svh, 560px); margin-bottom: 3svh; }
   .hero-txt { max-width: 640px; }
+  .hero .faixa span { font-size: 15px; }
+  .hero .faixa { margin-bottom: 2svh; }
   .hero-nome { --nome: clamp(44px, min(12.6vw, 7.6svh), 92px); }
   .folha-leg { bottom: -26px; font-size: 11px; }
   .folha-fundo { height: 78%; }
@@ -384,7 +386,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .marca { width: 96px; }
   .hero-mesa { height: min(36svh, 420px); margin-bottom: 4.6svh; }
   .hero .faixa { margin-bottom: 1.4svh; }
-  .hero .faixa span { font-size: 12.5px; padding: 8px 20px; }
+  .hero .faixa span { font-size: 14px; }
   .hero-nome { --nome: clamp(40px, min(12.4vw, 7.2svh), 60px); margin-bottom: 1.8svh; }
   .hero-sub { font-size: 15.5px; line-height: 1.5; }
   .hero-acoes { gap: 8px; margin: 2.6svh 0 2.6svh; flex-wrap: nowrap; }
@@ -430,8 +432,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 /* celular baixo (SE 1ª geração, 320×568) */
 @media (max-width: 640px) and (max-height: 640px) and (orientation: portrait) {
-  .hero-mesa { height: 32svh; margin-bottom: 2.6svh; }
+  .hero-mesa { height: 31svh; margin-bottom: 2.4svh; }
   .hero-info, .folha-leg { display: none; }
+  .hero .faixa span { font-size: 13px; }
   .hero-sub { font-size: 14.5px; line-height: 1.45; }
   .hero .faixa { margin-bottom: 1.4svh; }
 }
