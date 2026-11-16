@@ -20,11 +20,13 @@ Publicado em: https://azeugral.github.io/rodrigo-canhedo/ (prévia com `noindex`
 
 ## CONFIRMAR com o cliente
 
+- [ ] **Próximos guests**: ele escreveu "SP, RJ, B…" (cortado); no site está "SP, RJ e BH". As datas de Campinas, Sorocaba e São Paulo são de março de **2025**, por isso aparecem como "Encerrado". Se forem datas futuras, corrigir o ano e trocar a etiqueta.
+- [ ] **Loja**: a Pintura A4 saiu (ele listou só prints, A5 e ímã). Os preços dos prints, do A5 e do ímã vêm dos destaques.
 - [ ] **Endereço do Space Monkey Tattoo**: o link do mapa é uma busca por nome. Trocar pelo endereço completo e pelo link do Google Maps do estúdio.
 - [ ] **Horário de atendimento**: no site está "atendimento com horário marcado".
 - [ ] **"Mais de 13 flashes"**: a frase saiu da transcrição do reel de catálogo; conferir o número.
 - [ ] **Tattoo Rock Fest**: falta o ano e a cidade, por isso aparece só "convenção".
-- [ ] **Foto do Sobre (027_0)**: confirmar que é ele e que pode usar. Também confirmar a legenda "As 53 folhas de 2025".
+- [ ] **Foto do Sobre (027_0)**: confirmar a legenda "As 53 folhas de 2025".
 - [ ] **Loja**: confirmar preços e se ainda tem estoque:
   - Pintura A4: R$ 200
   - Pintura A5: R$ 60
