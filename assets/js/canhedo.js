@@ -135,9 +135,9 @@
   /* catálogo */
   const mural = $('#mural'), mais = $('#mais');
   const NOTAS = {
-    maos: 'Folhas pintadas em papel, com o par colorido e preto e cinza.',
-    digital: 'Flashes pintados no digital. Também dá pra tatuar colorido ou preto e cinza.',
-    flashinhos: 'Flashinhos: desenhos pequenos, bons pra preencher espacinhos.'
+    maos: 'Folhas de flash pintadas à mão.',
+    digital: 'Desenhos pintados no digital.',
+    flashinhos: 'Desenhos com aproximadamente 6 cm, bons pra preencher espacinhos.'
   };
   const PASSO = toque ? 12 : 16;
   let catalogo = [], pasta = 'maos', mostrados = 0;
