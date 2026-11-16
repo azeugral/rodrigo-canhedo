@@ -20,6 +20,7 @@ Publicado em: https://azeugral.github.io/rodrigo-canhedo/ (prévia com `noindex`
 
 ## CONFIRMAR com o cliente
 
+- [ ] **Formulário "Monta seu pedido"** (em Como tatuar comigo): sugestão nossa, ele não pediu. Monta flash/ideia, tamanho, local e nome e abre o WhatsApp; a DM copia o texto. "Quero tatuar este" no catálogo preenche o código. Se ele não quiser, voltar aos dois botões (WhatsApp e DM).
 - [ ] **Próximos guests**: ele escreveu "SP, RJ, B…" (cortado); no site está "SP, RJ e BH". As datas de Campinas, Sorocaba e São Paulo são de março de **2025**, por isso aparecem como "Encerrado". Se forem datas futuras, corrigir o ano e trocar a etiqueta.
 - [ ] **Loja**: a Pintura A4 saiu (ele listou só prints, A5 e ímã). Os preços dos prints, do A5 e do ímã vêm dos destaques.
 - [ ] **Endereço do Space Monkey Tattoo**: o link do mapa é uma busca por nome. Trocar pelo endereço completo e pelo link do Google Maps do estúdio.

@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fontes/ultra-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fontes.css?v=1">
-<link rel="stylesheet" href="assets/css/canhedo.css?v=8">
+<link rel="stylesheet" href="assets/css/canhedo.css?v=9">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"TattooParlor","name":"Rodrigo Canhedo Tattoo","description":"Tatuagem tradicional americana e flash pintado à mão.","address":{"@type":"PostalAddress","addressLocality":"Águas Claras","addressRegion":"DF","addressCountry":"BR"},"telephone":"+55 61 99120-7679","sameAs":["https://www.instagram.com/rodrigo.canhedo/","https://www.tiktok.com/@rodrigo.canhedo","https://www.pinterest.com/RodrigoCanhedoTattoo/","https://youtube.com/@rodrigo.canhedo"]}</script>
 </head>
 <body>
@@ -369,10 +369,25 @@
     <li class="revela"><span>3</span><h3>Orçamento</h3><p>A gente troca uma ideia, eu te passo o orçamento e respondo as suas dúvidas.</p></li>
     <li class="revela"><span>4</span><h3>Dia marcado</h3><p>Você vem até o Space Monkey Tattoo e a gente faz a tattoo.</p></li>
   </ol>
-  <div class="contato revela">
-    <a class="btn btn-grande" href="https://wa.me/5561991207679?text=Oi%20Rodrigo!%20Vim%20pelo%20seu%20site%20e%20quero%20fazer%20uma%20tatuagem." target="_blank" rel="noopener"><span>Chamar no WhatsApp</span></a>
-    <a class="btn btn-claro btn-grande" href="https://ig.me/m/rodrigo.canhedo" target="_blank" rel="noopener"><span>Mandar DM</span></a>
-  </div>
+  <form class="pedido revela" id="pedido" novalidate>
+    <h3>Monta seu pedido</h3>
+    <p class="pedido-intro">Preenche aqui que a mensagem já chega pronta pra mim.</p>
+    <fieldset class="pedido-tipo">
+      <legend>O que você quer tatuar</legend>
+      <label><input type="radio" name="tipo" value="flash" checked><span>Flash do catálogo</span></label>
+      <label><input type="radio" name="tipo" value="ideia"><span>Minha ideia</span></label>
+    </fieldset>
+    <div class="pedido-campos">
+      <label class="pedido-largo" data-tipo="flash"><span>Código do flash</span><input name="flash" autocomplete="off" placeholder="Ex.: M-012"><small>O código aparece em cada folha do <a href="#catalogo">catálogo</a>.</small></label>
+      <label class="pedido-largo" data-tipo="ideia" hidden><span>Sua ideia</span><input name="ideia" autocomplete="off" placeholder="Ex.: andorinha com rosa, colorida"></label>
+      <label><span>Tamanho aproximado</span><input name="tamanho" autocomplete="off" placeholder="Ex.: 10 cm"></label>
+      <label><span>Lugar do corpo</span><input name="local" autocomplete="off" placeholder="Ex.: antebraço"></label>
+      <label class="pedido-largo"><span>Seu nome</span><input name="nome" autocomplete="name"></label>
+    </div>
+    <button class="btn btn-grande" type="submit"><span>Mandar no WhatsApp</span></button>
+    <p class="pedido-dm">Prefere o Instagram? <a href="https://ig.me/m/rodrigo.canhedo" target="_blank" rel="noopener" data-pedido-dm>Manda uma DM</a></p>
+    <p class="pedido-msg" role="status" aria-live="polite"></p>
+  </form>
   <div class="estudio revela">
     <div>
       <h3>Space Monkey Tattoo</h3>
@@ -407,10 +422,10 @@
   <button class="cl-ant" type="button" aria-label="Anterior">‹</button>
   <figure class="cl-fig"><img alt=""><figcaption></figcaption></figure>
   <button class="cl-prox" type="button" aria-label="Próxima">›</button>
-  <a class="btn cl-quero" href="#" target="_blank" rel="noopener" hidden><span>Quero tatuar este</span></a>
+  <a class="btn cl-quero" href="#pedido" hidden><span>Quero tatuar este</span></a>
 </div>
 
 <script src="assets/js/folha.js?v=1" defer></script>
-<script src="assets/js/canhedo.js?v=2" defer></script>
+<script src="assets/js/canhedo.js?v=3" defer></script>
 </body>
 </html>

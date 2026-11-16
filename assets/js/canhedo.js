@@ -94,7 +94,7 @@
     im.onload = () => { clImg.src = it.src; clImg.alt = it.alt || ''; clImg.style.opacity = 1; };
     im.src = it.src;
     clLeg.textContent = it.leg || '';
-    if (it.cod) { clQuero.hidden = false; clQuero.href = zapLink(`Oi Rodrigo! Vi no seu site o flash ${it.cod} e quero tatuar.`); }
+    if (it.cod) { clQuero.hidden = false; clQuero.dataset.cod = it.cod; }
     else clQuero.hidden = true;
     const varios = lista.length > 1; $('.cl-ant', cl).hidden = !varios; $('.cl-prox', cl).hidden = !varios;
   }
@@ -209,6 +209,59 @@
         msg.className = 'ficha-msg erro'; msg.textContent = 'Não deu pra enviar agora. Tente de novo ou me chame no WhatsApp.';
       }
       bt.disabled = false;
+    });
+  }
+
+  /* pedido de tatuagem: monta a mensagem e abre o WhatsApp (ou copia pra DM) */
+  const pedido = $('#pedido');
+  if (pedido) {
+    const msgP = $('.pedido-msg', pedido);
+    const campo = n => pedido.elements[n];
+    const tipo = () => pedido.elements.tipo.value;
+    function trocarTipo() {
+      $$('[data-tipo]', pedido).forEach(l => { l.hidden = l.dataset.tipo !== tipo(); });
+    }
+    $$('[name="tipo"]', pedido).forEach(r => r.addEventListener('change', trocarTipo));
+    function montar() {
+      const linhas = ['Oi Rodrigo! Vim pelo seu site e quero fazer uma tatuagem.', ''];
+      if (tipo() === 'flash') linhas.push(`Flash: ${campo('flash').value.trim().toUpperCase()}`);
+      else linhas.push(`Minha ideia: ${campo('ideia').value.trim()}`);
+      linhas.push(`Tamanho: ${campo('tamanho').value.trim()}`, `Lugar do corpo: ${campo('local').value.trim()}`, '', `Meu nome é ${campo('nome').value.trim()}.`);
+      return linhas.join('\n');
+    }
+    function validar() {
+      let ok = true;
+      $$('input:not([type="radio"])', pedido).forEach(i => i.setAttribute('aria-invalid', 'false'));
+      [tipo(), 'tamanho', 'local', 'nome'].forEach(n => {
+        const i = campo(n), vazio = !i.value.trim();
+        i.setAttribute('aria-invalid', vazio); if (vazio) ok = false;
+      });
+      msgP.className = ok ? 'pedido-msg' : 'pedido-msg erro';
+      msgP.textContent = ok ? '' : (tipo() === 'flash' ? 'Falta o código do flash, o tamanho, o lugar do corpo ou o seu nome.' : 'Falta a sua ideia, o tamanho, o lugar do corpo ou o seu nome.');
+      return ok;
+    }
+    pedido.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!validar()) return;
+      window.open(zapLink(montar()), '_blank', 'noopener');
+    });
+    $('[data-pedido-dm]', pedido).addEventListener('click', e => {
+      if (!validar()) { e.preventDefault(); return; }
+      const t = montar();
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {
+        msgP.className = 'pedido-msg ok'; msgP.textContent = 'Mensagem copiada. É só colar na DM.';
+      }).catch(() => {});
+    });
+    // "Quero tatuar este" na caixa de luz preenche o código e desce até o pedido
+    clQuero.addEventListener('click', e => {
+      e.preventDefault();
+      pedido.elements.tipo.value = 'flash'; trocarTipo();
+      campo('flash').value = clQuero.dataset.cod || '';
+      fecharLuz();
+      setTimeout(() => {
+        pedido.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        campo('tamanho').focus({ preventScroll: true });
+      }, 380);
     });
   }
 })();

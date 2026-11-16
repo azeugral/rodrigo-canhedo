@@ -344,6 +344,28 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .passos h3 { font: 400 23px/1.1 'Ultra', serif; color: var(--tinta); margin-bottom: 10px; }
 .passos p { font-size: 16px; }
 .contato { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: clamp(46px, 6vw, 70px) 0 0; }
+.pedido { max-width: 760px; margin: clamp(46px, 6vw, 70px) auto 0; padding: clamp(26px, 3.6vw, 44px); background: rgba(255, 252, 244, .5); border: 2px solid var(--tinta); box-shadow: 10px 10px 0 var(--tinta); scroll-margin-top: calc(var(--topo-h) + 20px); }
+.pedido h3 { font: 400 clamp(24px, 2.4vw, 32px)/1.08 'Ultra', serif; color: var(--tinta); }
+.pedido-intro { margin: 8px 0 24px; color: var(--txt-2); font-size: 16px; }
+.pedido-tipo { border: 0; padding: 0; margin: 0 0 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pedido-tipo legend, .pedido-campos label > span { display: block; font: 700 12.5px/1 'Archivo', sans-serif; font-stretch: 85%; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 9px; color: var(--txt-2); padding: 0; }
+.pedido-tipo label { position: relative; }
+.pedido-tipo input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.pedido-tipo label span { display: grid; place-items: center; min-height: 52px; padding: 8px 12px; border: 2px solid var(--tinta); font: 700 14px/1.15 'Archivo', sans-serif; font-stretch: 85%; letter-spacing: .06em; text-transform: uppercase; text-align: center; color: var(--tinta); transition: background-color .25s, color .25s, box-shadow .25s var(--curva); }
+.pedido-tipo input:checked + span { background: var(--tinta); color: var(--papel); box-shadow: 4px 4px 0 var(--verm); }
+.pedido-tipo input:focus-visible + span { outline: 2px solid var(--verm); outline-offset: 3px; }
+.pedido-campos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px; margin-bottom: 24px; }
+.pedido-largo { grid-column: 1 / -1; }
+.pedido-campos input { width: 100%; height: 50px; padding: 0 14px; border: 2px solid var(--tinta); background: rgba(255, 252, 244, .75); font: 400 16px 'Archivo', sans-serif; color: var(--tinta); border-radius: 0; transition: background-color .3s, box-shadow .3s var(--curva); }
+.pedido-campos input:focus { outline: none; background: #fffaf0; box-shadow: 4px 4px 0 var(--verm); }
+.pedido-campos input[aria-invalid="true"] { border-color: var(--verm); }
+.pedido-campos small { display: block; margin-top: 7px; font-size: 13.5px; color: var(--txt-2); }
+.pedido-campos small a { color: var(--tinta); text-underline-offset: 3px; }
+.pedido .btn { width: 100%; }
+.pedido-dm { margin-top: 16px; text-align: center; font-size: 15px; color: var(--txt-2); }
+.pedido-dm a { color: var(--tinta); font-weight: 700; text-underline-offset: 3px; }
+.pedido-msg { min-height: 1.4em; margin-top: 10px; text-align: center; font-weight: 600; font-size: 15px; }
+.pedido-msg.ok { color: var(--verde); } .pedido-msg.erro { color: var(--verm); }
 .estudio { max-width: 760px; margin: clamp(40px, 5vw, 60px) auto 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 28px; border: 2px solid var(--tinta); background: rgba(255, 252, 244, .35); }
 .estudio h3 { font: 400 22px/1.1 'Ultra', serif; color: var(--tinta); }
 .estudio p { font-size: 15.5px; color: var(--txt-2); margin-top: 6px; }
@@ -453,7 +475,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .item .preco { font-size: 21px; padding-left: 2px; }
   .item .btn { margin: 14px 2px 0; align-self: stretch; }
   .passos { grid-template-columns: 1fr; }
-  .contato .btn { flex: 1 1 100%; }
+  .pedido { box-shadow: 6px 6px 0 var(--tinta); }
+  .pedido-campos { grid-template-columns: 1fr; }
+  .pedido-tipo label span { font-size: 13px; }
   .estudio { flex-direction: column; align-items: flex-start; padding: 22px; }
   .ficha { box-shadow: 8px 8px 0 var(--verm); }
   .caixa-luz { grid-template-columns: 44px minmax(0, 1fr) 44px; padding: 58px 0 96px; }
